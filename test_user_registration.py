@@ -10,7 +10,7 @@
 
 
 import unittest
-from user_registration import is_valid_first_name
+from user_registration import is_valid_first_name, is_valid_last_name
 
 
 class TestUserRegistration(unittest.TestCase):
@@ -21,6 +21,15 @@ class TestUserRegistration(unittest.TestCase):
         self.assertTrue(is_valid_first_name('Ayu'))
         self.assertFalse(is_valid_first_name('ayush'))
         self.assertFalse(is_valid_first_name('Ayush123'))
+    
+    
+    def test_is_valid_last_name(self):
+        # Unit test for `is_valid_first_name()` function
+        self.assertTrue(is_valid_last_name('Prajapati'))
+        self.assertTrue(is_valid_last_name('Pra'))
+        self.assertFalse(is_valid_last_name('prajapati'))
+        self.assertFalse(is_valid_last_name('pra'))
+
 
 
 if __name__ == "__main__":
