@@ -28,17 +28,38 @@ def is_valid_first_name(first_name):
     return bool(re.match(first_name_pattern, first_name))
 
 
+def is_valid_last_name(last_name):
+    """
+    Description: 
+        This function validates last name of the user
+    Parameters:
+        last_name : last name of the user
+    Return:
+        bool: Whether valid or not
+    """
+    ## Pattern: Last name starts with Cap and has minimum 3 characters
+    last_name_pattern = r"^[A-Z][a-zA-Z]{2,}$"
+    return bool(re.match(last_name_pattern, last_name))
+
+
 def main():
-    print("Welcome to User Registration Validation System")
+    print("*** Welcome to User Registration Validation System ***")
     logger = create_logger("user-registration")
 
     try:
-        first_name = input("Enter the first name of the user: ")
-
+        # for first name
+        first_name = input("\nEnter the first name of the user: ")
         if is_valid_first_name(first_name):
             logger.info(f"The user first name '{first_name}' is Valid")
         else:
             logger.info(f"The user first name '{first_name}' is Not Valid")
+
+        # for last name
+        last_name = input("\nEnter the last name of the user: ")
+        if is_valid_last_name(first_name):
+            logger.info(f"The user last name '{last_name}' is Valid")
+        else:
+            logger.info(f"The user last name '{last_name}' is Not Valid")
 
     except Exception as e:
         logger.error(f"An error occurred: {str(e)}")
