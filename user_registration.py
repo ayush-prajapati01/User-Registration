@@ -42,6 +42,19 @@ def is_valid_last_name(last_name):
     return bool(re.match(last_name_pattern, last_name))
 
 
+def is_valid_email(email):
+    """
+    Description: 
+        This function validates email of the user
+    Parameters:
+        email: email of the user
+    Return:
+        bool: Whether valid or not
+    """
+    email_pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+    return bool(re.match(email_pattern, email))
+
+
 def main():
     print("*** Welcome to User Registration Validation System ***")
     logger = create_logger("user-registration")
@@ -60,9 +73,17 @@ def main():
             logger.info(f"The user last name '{last_name}' is Valid")
         else:
             logger.info(f"The user last name '{last_name}' is Not Valid")
+        
+        # for email
+        email = input("\nEnter the email of the user: ")
+        if is_valid_email(email):
+            logger.info(f"The user email '{email}' is Valid")
+        else:
+            logger.info(f"The user email '{email}' is Not Valid")
 
     except Exception as e:
         logger.error(f"An error occurred: {str(e)}")
+
 
 if __name__ == "__main__":
     main()
