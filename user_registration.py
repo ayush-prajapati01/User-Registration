@@ -3,7 +3,7 @@
     @Author: Ayush Prajapati
     @Date: 19-08-2024 
     @Last Modified by: Ayush Prajapati
-    @Last Modified time: 19-09-2024 
+    @Last Modified time: 20-09-2024 
     @Title: Python User Registration System that ensure all validations
             are in place during the User Entry
     
@@ -55,6 +55,19 @@ def is_valid_email(email):
     return bool(re.match(email_pattern, email))
 
 
+def is_valid_phone_number(phone_number):
+    """
+    Description: 
+        This function validates phone number of the user
+    Parameters:
+        phone_number: phone number of the user
+    Return:
+        bool: Whether valid or not
+    """
+    phone_number_pattern = r"^\d{2,3}\s\d{10}$"
+    return bool(re.match(phone_number_pattern, phone_number))
+
+
 def main():
     print("*** Welcome to User Registration Validation System ***")
     logger = create_logger("user-registration")
@@ -80,6 +93,13 @@ def main():
             logger.info(f"The user email '{email}' is Valid")
         else:
             logger.info(f"The user email '{email}' is Not Valid")
+        
+        # for phone number
+        phone_number = input("\nEnter the phone number of the user: ")
+        if is_valid_phone_number(phone_number):
+            logger.info(f"The user phone number '{phone_number}' is Valid")
+        else:
+            logger.info(f"The user phone number '{phone_number}' is Not Valid")
 
     except Exception as e:
         logger.error(f"An error occurred: {str(e)}")
