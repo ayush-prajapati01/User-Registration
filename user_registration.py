@@ -87,39 +87,58 @@ def main():
 
     try:
         # for first name
-        first_name = input("\nEnter the first name of the user: ")
-        if is_valid_first_name(first_name):
-            logger.info(f"The user first name '{first_name}' is Valid")
-        else:
-            logger.info(f"The user first name '{first_name}' is Not Valid")
+        while True:
+            first_name = input("\nEnter the first name of the user: ")
+            if is_valid_first_name(first_name):
+                logger.info(f"The user first name '{first_name}' is Valid")
+                break
+            else:
+                logger.info(f"The user first name '{first_name}' is Not Valid. Please try again.")
 
         # for last name
-        last_name = input("\nEnter the last name of the user: ")
-        if is_valid_last_name(first_name):
-            logger.info(f"The user last name '{last_name}' is Valid")
-        else:
-            logger.info(f"The user last name '{last_name}' is Not Valid")
-        
+        while True:
+            last_name = input("\nEnter the last name of the user: ")
+            if is_valid_last_name(last_name):
+                logger.info(f"The user last name '{last_name}' is Valid")
+                break
+            else:
+                logger.info(f"The user last name '{last_name}' is Not Valid. Please try again.")
+
         # for email
-        email = input("\nEnter the email of the user: ")
-        if is_valid_email(email):
-            logger.info(f"The user email '{email}' is Valid")
-        else:
-            logger.info(f"The user email '{email}' is Not Valid")
-        
+        while True:
+            email = input("\nEnter the email of the user: ")
+            if is_valid_email(email):
+                logger.info(f"The user email '{email}' is Valid")
+                break
+            else:
+                logger.info(f"The user email '{email}' is Not Valid. Please try again.")
+
         # for phone number
-        phone_number = input("\nEnter the phone number of the user: ")
-        if is_valid_phone_number(phone_number):
-            logger.info(f"The user phone number '{phone_number}' is Valid")
-        else:
-            logger.info(f"The user phone number '{phone_number}' is Not Valid")
-        
+        while True:
+            phone_number = input("\nEnter the phone number of the user: ")
+            if is_valid_phone_number(phone_number):
+                logger.info(f"The user phone number '{phone_number}' is Valid")
+                break
+            else:
+                logger.info(f"The user phone number '{phone_number}' is Not Valid. Please try again.")
+
         # for password
-        password = input("\nEnter the phone number of the user: ")
-        if is_valid_password(password):
-            logger.info(f"The user password '{password}' is Valid")
-        else:
-            logger.info(f"The user password '{password}' is Not Valid")
+        while True:
+            password = input("\nEnter the password of the user: ")
+            if is_valid_password(password):
+                logger.info(f"The user password '{password}' is Valid")
+                break
+            else:
+                logger.info(f"The user password '{password}' is Not Valid. Please try again.")
+
+
+        print("\n\nThe user details are:")
+        print(f"The First name is: {first_name}")
+        print(f"The Last name is: {last_name}")
+        print(f"The E-mail is: {email}")
+        print(f"The Phone number is: {phone_number}")
+        print(f"The Password is: {password}")
+        print("\nThank you\nExiting.......")
 
     except Exception as e:
         logger.error(f"An error occurred: {str(e)}")
