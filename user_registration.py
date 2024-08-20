@@ -51,7 +51,7 @@ def is_valid_email(email):
     Return:
         bool: Whether valid or not
     """
-    email_pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+    email_pattern = r"^(?!.*\.\.)(?!^\.)([a-zA-Z0-9._%+-])+(?<!\.)@([a-zA-Z0-9-]+\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?$"
     return bool(re.match(email_pattern, email))
 
 
@@ -132,13 +132,13 @@ def main():
                 logger.info(f"The user password '{password}' is Not Valid. Please try again.")
 
         # Displaying user details
-        print("\n\nThe user details are:")
-        print(f"The First name is: {first_name}")
-        print(f"The Last name is: {last_name}")
-        print(f"The E-mail is: {email}")
-        print(f"The Phone number is: {phone_number}")
-        print(f"The Password is: {password}")
-        print("\nThank you\nExiting.......")
+        logger.info("\n\nThe user details are:")
+        logger.info(f"The First name is: {first_name}")
+        logger.info(f"The Last name is: {last_name}")
+        logger.info(f"The E-mail is: {email}")
+        logger.info(f"The Phone number is: {phone_number}")
+        logger.info(f"The Password is: {password}")
+        logger.info("\nThank you\nExiting.......")
 
     except Exception as e:
         logger.error(f"An error occurred: {str(e)}")
