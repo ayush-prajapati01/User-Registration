@@ -71,13 +71,13 @@ def is_valid_phone_number(phone_number):
 def is_valid_password(password):
     """
     Description: 
-        This function validates password of the user
+        This function validates password of the user as per given rules
     Parameters:
         password: password of the user
     Return:
         bool: Whether valid or not
     """
-    password_pattern = r"^(?=.*[A-Z])(?=.*\d).{8,}$"
+    password_pattern= r"^(?=.*[A-Z])(?=.*\d)(?=(?:[^!@#$%^&*()]*[!@#$%^&*()]){1}[^!@#$%^&*()]*$).{8,}$"
     return bool(re.match(password_pattern, password))
 
 
@@ -131,7 +131,7 @@ def main():
             else:
                 logger.info(f"The user password '{password}' is Not Valid. Please try again.")
 
-
+        # Displaying user details
         print("\n\nThe user details are:")
         print(f"The First name is: {first_name}")
         print(f"The Last name is: {last_name}")
