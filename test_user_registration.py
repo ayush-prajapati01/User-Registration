@@ -3,7 +3,7 @@
     @Author: Ayush Prajapati
     @Date: 19-08-2024 
     @Last Modified by: Ayush Prajapati
-    @Last Modified time: 19-09-2024 
+    @Last Modified time: 20-09-2024 
     @Title: Python Program to perform unit test on user_registration.py
     
 '''
@@ -11,6 +11,7 @@
 
 import unittest
 from user_registration import is_valid_first_name, is_valid_last_name, is_valid_email
+from user_registration import is_valid_phone_number
 
 
 class TestUserRegistration(unittest.TestCase):
@@ -37,6 +38,15 @@ class TestUserRegistration(unittest.TestCase):
         self.assertTrue(is_valid_email('abc.xyz@bl.co.in'))
         self.assertFalse(is_valid_email('abc.xyz@bl'))
         self.assertFalse(is_valid_email('abc.xyz@bl.c'))
+    
+
+    def test_is_valid_phone_number(self):
+        # Unit test for `is_valid_phone_number()` function"
+        self.assertTrue(is_valid_phone_number('91 9919819801'))   
+        self.assertTrue(is_valid_phone_number('123 9919819801'))  
+        self.assertFalse(is_valid_phone_number('9 9919819801'))   
+        self.assertFalse(is_valid_phone_number('1234 9919819801'))  
+        self.assertFalse(is_valid_phone_number('91-9919819801'))  
 
 
 if __name__ == "__main__":
