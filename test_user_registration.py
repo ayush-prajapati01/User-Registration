@@ -10,8 +10,10 @@
 
 
 import unittest
-from user_registration import is_valid_first_name, is_valid_last_name, is_valid_email
-from user_registration import is_valid_phone_number
+from user_registration import (
+    is_valid_first_name, is_valid_last_name, is_valid_email,
+    is_valid_phone_number, is_valid_password
+) 
 
 
 class TestUserRegistration(unittest.TestCase):
@@ -47,6 +49,12 @@ class TestUserRegistration(unittest.TestCase):
         self.assertFalse(is_valid_phone_number('9 9919819801'))   
         self.assertFalse(is_valid_phone_number('1234 9919819801'))  
         self.assertFalse(is_valid_phone_number('91-9919819801'))  
+
+
+    def test_is_valid_password(self):
+        # Unit test for `is_valid_password()` function"
+        self.assertTrue(is_valid_password('abcd1234'))
+        self.assertFalse(is_valid_password('abcde'))
 
 
 if __name__ == "__main__":
