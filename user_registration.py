@@ -68,6 +68,19 @@ def is_valid_phone_number(phone_number):
     return bool(re.match(phone_number_pattern, phone_number))
 
 
+def is_valid_password(password):
+    """
+    Description: 
+        This function validates password of the user
+    Parameters:
+        password: password of the user
+    Return:
+        bool: Whether valid or not
+    """
+    password_pattern = r"^.{8,}$"
+    return bool(re.match(password_pattern, password))
+
+
 def main():
     print("*** Welcome to User Registration Validation System ***")
     logger = create_logger("user-registration")
@@ -100,6 +113,13 @@ def main():
             logger.info(f"The user phone number '{phone_number}' is Valid")
         else:
             logger.info(f"The user phone number '{phone_number}' is Not Valid")
+        
+        # for password
+        password = input("\nEnter the phone number of the user: ")
+        if is_valid_password(password):
+            logger.info(f"The user password '{password}' is Valid")
+        else:
+            logger.info(f"The user password '{password}' is Not Valid")
 
     except Exception as e:
         logger.error(f"An error occurred: {str(e)}")
