@@ -40,6 +40,34 @@ class TestUserRegistration(unittest.TestCase):
         self.assertTrue(is_valid_email('abc.xyz@bl.co.in'))
         self.assertFalse(is_valid_email('abc.xyz@bl'))
         self.assertFalse(is_valid_email('abc.xyz@bl.c'))
+        self.assertFalse(is_valid_email('abc@gmail..com'))
+
+        ## Additional Sample Email test cases
+        ## Valid
+        self.assertTrue(is_valid_email("abc@yahoo.com"))           
+        self.assertTrue(is_valid_email("abc-100@yahoo.com"))       
+        self.assertTrue(is_valid_email("abc.100@yahoo.com"))       
+        self.assertTrue(is_valid_email("abc111@abc.com"))          
+        self.assertTrue(is_valid_email("abc111@abc.net"))          
+        self.assertTrue(is_valid_email("abc.100@abc.com.au"))     
+        self.assertTrue(is_valid_email("abc@1.com"))               
+        self.assertTrue(is_valid_email("abc@gmail.com.com"))       
+        self.assertTrue(is_valid_email("abc+100@gmail.com"))
+
+        ## Invalid
+        self.assertFalse(is_valid_email("abc"))                  
+        self.assertFalse(is_valid_email("abc@.com.my"))         
+        self.assertFalse(is_valid_email("abc123@gmail.a"))       
+        self.assertFalse(is_valid_email("abc123@.com"))          
+        self.assertFalse(is_valid_email("abc123@.com.com"))     
+        self.assertFalse(is_valid_email(".abc@abc.com"))         
+        self.assertFalse(is_valid_email("abc()*@gmail.com"))    
+        self.assertFalse(is_valid_email("abc@%*.com"))           
+        self.assertFalse(is_valid_email("abc..2002@gmail.com"))   
+        self.assertFalse(is_valid_email("abc.@gmail.com"))       
+        self.assertFalse(is_valid_email("abc@abc@gmail.com"))    
+        self.assertFalse(is_valid_email("abc@gmail.com.1a"))     
+        self.assertFalse(is_valid_email("abc@gmail.com.aa.au"))
     
 
     def test_is_valid_phone_number(self):
@@ -66,6 +94,6 @@ class TestUserRegistration(unittest.TestCase):
         self.assertFalse(is_valid_password('abcd123@'))
         self.assertFalse(is_valid_password('!Abcd23&'))
 
-        
+
 if __name__ == "__main__":
     unittest.main()
