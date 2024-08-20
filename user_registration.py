@@ -77,7 +77,7 @@ def is_valid_password(password):
     Return:
         bool: Whether valid or not
     """
-    password_pattern = r"^(?=.*[A-Z]).{8,}$"
+    password_pattern = r"^(?=.*[A-Z])(?=.*\d).{8,}$"
     return bool(re.match(password_pattern, password))
 
 
