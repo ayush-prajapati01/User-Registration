@@ -54,12 +54,14 @@ class TestUserRegistration(unittest.TestCase):
     def test_is_valid_password(self):
         # Unit test for `is_valid_password()` function"
 
-        # for rule 1 and rule 2
-        self.assertTrue(is_valid_password('Abcd1234'))
-        self.assertTrue(is_valid_password('AbcdEFGh'))
-        self.assertFalse(is_valid_password('abcdefgh'))  
-        self.assertFalse(is_valid_password('abcd1234'))  
-
+        # for rule 1, rule 2 and rule 3
+        self.assertTrue(is_valid_password('Abcdefg1'))   
+        self.assertTrue(is_valid_password('A1bcd1234'))
+        self.assertTrue(is_valid_password('ABCD1234'))
+        self.assertFalse(is_valid_password('Abcdefgh'))  
+        self.assertFalse(is_valid_password('abcdefgh1')) 
+        self.assertFalse(is_valid_password('abc123'))
+        
 
 if __name__ == "__main__":
     unittest.main()
